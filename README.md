@@ -14,6 +14,10 @@
 - cd backend
 - json-server --watch db.json
 
+### Design / UI
+
+- En la carpeta design se encuentran imagenes de un posible diseno, es solo una guia. con lo cual no es requido seguir el diseno siempre y cuanto cumpla con todos los requirimientos planteados por la letra del ejercicio.
+
 ## EJERCICIO
 
 Proyecto: Aplicación de Listado de Tareas (To-Do App)
