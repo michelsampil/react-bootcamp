@@ -1,0 +1,54 @@
+{
+  "tasks": [
+    {
+      "id": 0,
+      "description": "Descargar el proyecto",
+      "isCompleted": true
+    },
+    {
+      "id": 1,
+      "description": "Comprender el ejercico",
+      "isCompleted": true
+    },
+    {
+      "id": 2,
+      "description": "Bosquejar una UI que satisface las funcionalidades",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "description": "Dividir la UI en componentes y repartir el trabajo",
+      "isCompleted": false
+    },
+    {
+      "id": 4,
+      "description": "Crear los Componentes de la UI",
+      "isCompleted": false
+    },
+    {
+      "id": 5,
+      "description": "Levantar el JSON server",
+      "isCompleted": false
+    },
+    {
+      "id": 6,
+      "description": "Traer los datos del JSON server",
+      "isCompleted": false
+    },
+    {
+      "id": 7,
+      "description": "Realizar el ABM de las tareas",
+      "isCompleted": false
+    },
+    {
+      "id": 8,
+      "description": "Optimizar los componentes",
+      "isCompleted": false
+    },
+    {
+      "id": 8,
+      "description": "Tiempo de una cerveza 🍺",
+      "isCompleted": false
+    }
+  ]
+}
