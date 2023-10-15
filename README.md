@@ -66,7 +66,7 @@ Utilizar styled-components para ajustar estilos adicionales o sobrescribir estil
 Implementar algún tipo de validación para el formulario de añadir tareas (p.ej., que no se puedan añadir tareas vacías).
 
 Tareas:Usar useEffect para realizar llamadas a la API cuando el componente se monta y gestionar el estado de la aplicación basado en la respuesta de la API.
-Implementar una función fetchTasks que haga una solicitud GET a https://jsonplaceholder.typicode.com/posts y actualice el estado de la aplicación con las tareas recuperadas.
+Implementar una función fetchTasks que haga una solicitud GET a http://localhost:3000/tasks y actualice el estado de la aplicación con las tareas recuperadas.
 
 Nota:
 En tu TaskContext, implementarías el uso de useEffect para realizar el llamado a la API al montar el componente. Además, tu reducer manejará diferentes acciones para actualizar el estado basado en las respuestas de la API.

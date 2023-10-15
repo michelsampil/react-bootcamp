@@ -1,38 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { TaskProvider } from "./context/TaskContext.jsx";
+import { TaskList } from "./components/TaskList.jsx";
+import { AddTaskForm } from "./components/AddTaskForm.jsx";
+import { Filter } from "./components/Filter.jsx";
 
-function App() {
-
-
+const App = () => {
   return (
-    <>
-      <div>React</div>
-     
-    </>
-  )
-}
+    <TaskProvider>
+      <div style={{ display: "flex", flexWrap: "no-wrap" }}>
+        <TaskList />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            maxWidth: "20rem",
+          }}
+        >
+          <Filter />
+          <AddTaskForm />
+        </div>
+      </div>
+    </TaskProvider>
+  );
+};
 
-export default App
-
-// ejemplo de estructura 
-
-// import React from 'react';
-// import { TaskProvider } from './context/TaskContext.jsx';
-// import TaskList from './components/TaskList.jsx';
-// import AddTaskForm from './components/AddTaskForm.jsx';
-// import Filter from './components/Filter.jsx';
-
-// const App = () => {
-//   return (
-//     <TaskProvider>
-//       <AddTaskForm />
-//       <Filter />
-//       <TaskList />
-//     </TaskProvider>
-//   );
-// };
-
-// export default App;
-
+export default App;
