@@ -6,13 +6,20 @@ import { Filter } from "./components/Filter.jsx";
 const App = () => {
   return (
     <TaskProvider>
-      <div style={{ display: "flex", flexWrap: "no-wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "no-wrap",
+          justifyContent: "space-between",
+          width: "100vw",
+        }}
+      >
         <TaskList />
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            maxWidth: "20rem",
+            maxWidth: "50vw",
           }}
         >
           <Filter />
