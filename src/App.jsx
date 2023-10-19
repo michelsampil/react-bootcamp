@@ -2,6 +2,7 @@ import { TaskProvider } from "./context/TaskContext.jsx";
 import { TaskList } from "./components/TaskList.jsx";
 import { AddTaskForm } from "./components/AddTaskForm.jsx";
 import { Filter } from "./components/Filter.jsx";
+import "./App.css";
 
 const App = () => {
   return (

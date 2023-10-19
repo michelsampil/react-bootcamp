@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-// import { useGetTasks } from "../services/taskService";
 const TaskContext = createContext();
 const url = "http://localhost:3000/tasks";
 
@@ -21,30 +20,6 @@ const filterTasks = (list, filterTerm) => {
   console.log("filteredTask have: ", filterTasks);
   return filteredTasks;
 };
-
-// const addTask = async (state, newTask) => {
-//   console.log("RUNNING adding task", state.tasks, newTask);
-//   try {
-//     const headers = new Headers({
-//       "Content-Type": "application/json",
-//     });
-
-//     const requestOptions = {
-//       body: JSON.stringify(newTask),
-//       method: "POST",
-//       headers,
-//     };
-//     const response = await fetch(url, requestOptions);
-//     const data = await response.json();
-//     const updatedTaskList = [...state.tasks, data];
-//     const newState = { tasks: updatedTaskList, filteredTasks: updatedTaskList };
-//     return newState;
-//   } catch (error) {
-//     console.error("Error adding data: ", error);
-//   }
-// };
-
-// const addTask = async () => {};
 
 const editTask = (editedTask) => {};
 
@@ -91,30 +66,12 @@ const taskReducer = (state, action) => {
 };
 
 export const TaskProvider = ({ children }) => {
-  // const url = "http://localhost:3000/tasks";
-
-  // const { tasks } = useGetTasks(url);
   const initialState = {
     tasks: [],
     filter: "all",
     filteredTasks: [],
   };
   const [state, dispatch] = useReducer(taskReducer, initialState);
-
-  // if (tasks) {
-  //   dispatch({ type: "SET_TASKS", payload: tasks });
-  // }
-
-  // useEffect(() => {
-  //   const fetchTasks = () => {
-  //     // const data = await getAllTasks();
-  //     // const { tasks, isLoadingTasks, loadingTasksError } = useGetTasks();
-  //     if (tasks) {
-  //       dispatch({ type: "SET_TASKS", payload: tasks });
-  //     }
-  //   };
-  //   fetchTasks();
-  // }, [tasks]);
 
   return (
     <TaskContext.Provider value={{ state, dispatch }}>
