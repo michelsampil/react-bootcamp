@@ -41,7 +41,6 @@
   color: #888;
 }
 
-/* Add this to your CSS or create a separate CSS file */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -58,6 +57,6 @@
   z-index: 2;
   background: #242424;
   border: solid 2px white;
-  padding: 20px;
+  padding: 1.5rem;
   border-radius: 5px;
 }

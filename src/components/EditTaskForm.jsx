@@ -16,7 +16,7 @@ export const EditTaskForm = ({ task, onEdit }) => {
     <div
       style={{
         width: "30vw",
-        height: "23vh",
+        height: "32vh",
         backgroundColor: "#242424",
       }}
     >
