@@ -1,6 +1,5 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
+import { createContext, useContext, useReducer } from "react";
 const TaskContext = createContext();
-const url = "http://localhost:3000/tasks";
 
 const filterTasks = (list, filterTerm) => {
   const taskStatusEvaluation = (element) => {
@@ -17,14 +16,14 @@ const filterTasks = (list, filterTerm) => {
   };
 
   const filteredTasks = list.filter((e) => taskStatusEvaluation(e));
-  console.log("filteredTask have: ", filterTasks);
   return filteredTasks;
 };
 
-const editTask = (editedTask) => {};
+const editTask = (editedTask) => {
+  //TODO implement edit task...
+};
 
 const deleteTask = (state, taskToDelete) => {
-  console.log("Reducer - task to delete:", taskToDelete);
   const newState = {
     ...state,
     tasks: state.tasks.filter((todo) => todo.id !== taskToDelete.id),
@@ -32,7 +31,6 @@ const deleteTask = (state, taskToDelete) => {
       (todo) => todo.id !== taskToDelete.id
     ),
   };
-  console.log("newState: ", newState);
   return newState;
 };
 
@@ -53,11 +51,7 @@ const taskReducer = (state, action) => {
         filteredTasks: [...state.filteredTasks, action.payload],
       };
     case "EDIT_TASK":
-      return {
-        ...state,
-        tasks: action.payload.tasks,
-        filteredTasks: action.payload.filteredTasks,
-      };
+      return editTask(state, action.payload);
     case "DELETE_TASK":
       return deleteTask(state, action.payload);
     default:

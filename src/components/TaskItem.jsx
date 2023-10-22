@@ -11,12 +11,13 @@ export const Task = ({ task }) => {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
-  const onEditHandler = () => {
-    console.log("onEditHandler");
+  const onEditHandler = (e) => {
+    // TODO 👇 implement on delete here
+    console.log("onEditHandler: ", e);
+    closeModal();
   };
 
   const onDeleteHandler = () => {
-    console.log("onDeleteHandler");
     deleteTask(task);
   };
 
@@ -37,13 +38,7 @@ export const Task = ({ task }) => {
         <input type="checkbox" disabled checked={isCompleted} />
         <button onClick={openModal}>Edit</button>
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <EditTaskForm
-            task={task}
-            onEdit={(e) => {
-              console.log("handling on edit...");
-              onEditHandler();
-            }}
-          />
+          <EditTaskForm task={task} onEdit={onEditHandler} />
         </Modal>
         <button onClick={onDeleteHandler}>Delete</button>
       </div>

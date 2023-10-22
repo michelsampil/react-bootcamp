@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useTasks } from "../context/TaskContext";
 const url = "http://localhost:3000/tasks";
 
 export const useGetTasks = () => {
   const taskCtx = useTasks();
   const { dispatch } = taskCtx;
-
-  console.log("running fetching hook");
 
   useEffect(() => {
     const getAllTasks = async () => {
@@ -33,55 +31,43 @@ const headers = new Headers({
   "Content-Type": "application/json",
 });
 
-// export const getAllTasks = async () => {
-//   try {
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error("Error fetching data: ", error);
-//   }
-// };
-
-const addTask = async (newTask) => {
-  try {
-    const requestOptions = {
-      body: JSON.stringify(newTask),
-      method: "POST",
-      headers,
-    };
-    const response = await fetch(url, requestOptions);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error adding data: ", error);
-  }
-};
-
-const editTask = async (task) => {
-  const { id: taskId } = task;
-
-  try {
-    const requestOptions = {
-      body: JSON.stringify(task),
-      method: "PATCH",
-      headers,
-    };
-    const response = await fetch(`${url}/${taskId}`, requestOptions);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error editing data: ", error);
-  }
-};
-
-export const useDeleteTasks = (task) => {
+export const useAddTask = () => {
   const taskCtx = useTasks();
   const { dispatch } = taskCtx;
 
-  console.log("running deleting hook");
+  const addTask = async (newTask) => {
+    try {
+      const headers = new Headers({
+        "Content-Type": "application/json",
+      });
 
-  // useEffect(() => {
+      const requestOptions = {
+        body: JSON.stringify(newTask),
+        method: "POST",
+        headers,
+      };
+      const response = await fetch(url, requestOptions);
+
+      const data = await response.json();
+      if (response.ok && data) {
+        dispatch({ type: "ADD_TASK", payload: data });
+      }
+    } catch (error) {
+      console.error("Error adding data: ", error);
+    }
+  };
+
+  return addTask;
+};
+
+const editTask = async (task) => {
+  // 👇 ToDo Implement editTask Hook to update the task
+};
+
+export const useDeleteTasks = () => {
+  const taskCtx = useTasks();
+  const { dispatch } = taskCtx;
+
   const deleteTask = async (task) => {
     const { id: taskId } = task;
     try {
@@ -90,10 +76,8 @@ export const useDeleteTasks = (task) => {
         headers,
       };
       const response = await fetch(`${url}/${taskId}`, requestOptions);
-      // const task = await response.json();
-      // return data;
+
       if (response.ok) {
-        console.log("ready to dispatch");
         dispatch({ type: "DELETE_TASK", payload: task });
       }
     } catch (error) {
@@ -101,6 +85,5 @@ export const useDeleteTasks = (task) => {
     }
   };
 
-  // }, [dispatch]);
   return deleteTask;
 };
