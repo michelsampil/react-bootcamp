@@ -8,14 +8,17 @@ export const TaskList = () => {
   const tasks = state.filteredTasks;
   useGetTasks();
 
-  console.log("taskLIst now has: ", tasks);
-
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2 style={{ margin: "1rem 1rem 0 1rem", paddingLeft: "2rem" }}>
+      <h2
+        style={{
+          margin: "1rem 1rem 0 1rem",
+          paddingLeft: "2rem",
+          textAlign: "left",
+        }}
+      >
         Task List
       </h2>
-      {/* <div > */}
       <ul style={{ display: "flex", flexWrap: "wrap" }}>
         {tasks?.length > 0 &&
           tasks.map((e) => {
@@ -35,7 +38,6 @@ export const TaskList = () => {
             );
           })}
       </ul>
-      {/* </div> */}
     </div>
   );
 };

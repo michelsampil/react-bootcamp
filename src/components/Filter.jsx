@@ -13,6 +13,7 @@ export const Filter = () => {
         width: "30vw",
         display: "flex",
         flexDirection: "column",
+        textAlign: "left",
       }}
     >
       <h2>Filter Tasks</h2>
