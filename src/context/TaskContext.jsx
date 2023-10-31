@@ -19,8 +19,23 @@ const filterTasks = (list, filterTerm) => {
   return filteredTasks;
 };
 
-const editTask = (editedTask) => {
+const editTask = (state, editedTask) => {
   //TODO implement edit task...
+
+  const findAndReplace = (item, collection) => {
+    const index = collection.findIndex((e) => e.id === item.id);
+    if (index !== -1) {
+      collection[index] = item;
+    }
+    return collection;
+  };
+
+  const newState = {
+    ...state,
+    tasks: findAndReplace(editedTask, state.tasks),
+    filteredTasks: findAndReplace(editedTask, state.filteredTasks),
+  };
+  return newState;
 };
 
 const deleteTask = (state, taskToDelete) => {
@@ -35,7 +50,6 @@ const deleteTask = (state, taskToDelete) => {
 };
 
 const taskReducer = (state, action) => {
-  console.log("action", action);
   switch (action.type) {
     case "SET_TASKS":
       return { tasks: action.payload, filteredTasks: action.payload };

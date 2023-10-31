@@ -1,19 +1,20 @@
 import { useState } from "react";
-import { useDeleteTasks } from "../services/taskService";
+import { useDeleteTasks, useEditTask } from "../services/taskService";
 import { Modal } from "./Modal";
 import { EditTaskForm } from "./EditTaskForm";
 
 export const Task = ({ task }) => {
   const { id, description, isCompleted } = task;
-  const deleteTask = useDeleteTasks();
   const [isModalOpen, setModalOpen] = useState(false);
+  const deleteTask = useDeleteTasks();
+  const editTask = useEditTask();
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
-  const onEditHandler = (e) => {
+  const onEditHandler = (task) => {
     // TODO 👇 implement on delete here
-    console.log("onEditHandler: ", e);
+    editTask(task);
     closeModal();
   };
 
