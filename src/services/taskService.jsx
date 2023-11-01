@@ -56,12 +56,33 @@ export const useAddTask = () => {
       console.error("Error adding data: ", error);
     }
   };
-
   return addTask;
 };
 
-const editTask = async (task) => {
+export const useEditTask = () => {
   // 👇 ToDo Implement editTask Hook to update the task
+  const taskCtx = useTasks();
+  const { dispatch } = taskCtx;
+
+  const editTask = async (task) => {
+    const { id: taskId } = task;
+
+    try {
+      const requestOptions = {
+        body: JSON.stringify(task),
+        method: "PATCH",
+        headers,
+      };
+      const response = await fetch(`${url}/${taskId}`, requestOptions);
+
+      if (response.ok) {
+        dispatch({ type: "EDIT_TASK", payload: task });
+      }
+    } catch (error) {
+      console.error("Error deleting data: ", error);
+    }
+  };
+  return editTask;
 };
 
 export const useDeleteTasks = () => {
