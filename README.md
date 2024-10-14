@@ -1,4 +1,8 @@
-# React Bootcamp
+# Task List
+
+Solucion disenada en react para permitir operaciones CRUD sobre una lista de tareas.
+
+Utiliza React Context en combinacion con custom hooks para centralizar y facilitar el acceso a los datos aplicando parcialmente el patron redux.
 
 ## COMO CORRER EL PROYECTO
 
