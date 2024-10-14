@@ -8,24 +8,27 @@ export const Filter = () => {
   };
 
   return (
-    <div
-      style={{
-        width: "30vw",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "left",
-      }}
-    >
-      <h2>Filter Tasks</h2>
-      <label htmlFor="myDropdown">Filter Tasks by:</label>
-      <select
-        style={{ width: "250px" }}
-        onChange={(e) => handleDropdownChange(e)}
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "left",
+
+          margin: "auto",
+        }}
       >
-        <option value="all">All</option>
-        <option value="completed">Completed</option>
-        <option value="uncompleted">Uncompleted</option>
-      </select>
+        <h2>Filter Tasks</h2>
+        <label htmlFor="myDropdown">Filter Tasks by:</label>
+        <select
+          style={{ width: "250px" }}
+          onChange={(e) => handleDropdownChange(e)}
+        >
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
     </div>
   );
 };

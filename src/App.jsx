@@ -10,21 +10,24 @@ const App = () => {
       <div
         style={{
           display: "flex",
-          flexWrap: "no-wrap",
+          flexWrap: "wrap",
           justifyContent: "space-between",
-          width: "100vw",
+          alignItems: "flex-start",
         }}
       >
         <TaskList />
         <div
           style={{
             display: "flex",
+            flexWrap: "wrap",
             flexDirection: "column",
-            maxWidth: "50vw",
+            flex: "1",
           }}
         >
-          <Filter />
-          <AddTaskForm />
+          <div>
+            <Filter />
+            <AddTaskForm />
+          </div>
         </div>
       </div>
     </TaskProvider>

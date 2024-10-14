@@ -13,7 +13,6 @@ export const Task = ({ task }) => {
   const closeModal = () => setModalOpen(false);
 
   const onEditHandler = (task) => {
-    // TODO 👇 implement on delete here
     editTask(task);
     closeModal();
   };

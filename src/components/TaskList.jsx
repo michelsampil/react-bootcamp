@@ -9,17 +9,15 @@ export const TaskList = () => {
   useGetTasks();
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "flex", flexDirection: "column", maxWidth: "60vw" }}>
       <h2
         style={{
-          margin: "1rem 1rem 0 1rem",
-          paddingLeft: "2rem",
           textAlign: "left",
         }}
       >
         Task List
       </h2>
-      <ul style={{ display: "flex", flexWrap: "wrap" }}>
+      <ul style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
         {tasks?.length > 0 &&
           tasks.map((e) => {
             return (
@@ -29,7 +27,6 @@ export const TaskList = () => {
                   borderRadius: "5px",
                   padding: "1rem",
                   listStyle: "none",
-                  margin: "1rem",
                   border: "2px solid white",
                 }}
               >
